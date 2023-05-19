@@ -1,23 +1,25 @@
-const playerChoice = getPlayerChoice();
-const computerChoice = getComputerChoice();
+let playerChoice;
+let computerChoice;
 let winner;
 let playerScore = 0;
 let computerScore = 0;
 
 function getPlayerChoice() {
     input = prompt("Rock, paper or scissors?")
-    return input;
+    playerChoice = input;
 }
 
 function getComputerChoice() {
     num = Math.floor(Math.random() * 3);
     switch (num) {
         case 0:
-            return "rock";
+            computerChoice = "rock";
+            break;
         case 1:
-            return "scissors"
+            computerChoice = "scissors"
+            break;
         case 2:
-            return "paper";
+            computerChoice = "paper";
     }
 }
 
@@ -44,19 +46,31 @@ function playRound() {
         computerScore++;
         winner = "Computer";
     }
-    else if (playerChoice.toLowerCase() === "rock" && computerChoice.toLowerCase() === "rock") {
-        winner = "No one";
-    }
-    else if (playerChoice.toLowerCase() === "rock" && computerChoice.toLowerCase() === "paper") {
+    else if (playerChoice.toLowerCase() === "scissors" && computerChoice.toLowerCase() === "rock") {
         computerScore++;
         winner = "Computer";
     }
-    else {
+    else if (playerChoice.toLowerCase() === "scissors" && computerChoice.toLowerCase() === "paper") {
         playerScore++;
         winner = "Player";
     }
+    else if (playerChoice.toLowerCase() === "scissors" && computerChoice.toLowerCase() === "scissors") {
+        winner = "No one";
+    }
+    else {
+        winner = "No one"
+        alert("Invalid input, valid inputs are rock, paper and scissors.")
+    }
 }
 
-playRound();
-alert(`Player uses ${playerChoice}, computer uses ${computerChoice}.
+function game() {
+    getPlayerChoice();
+    getComputerChoice()
+    playRound();
+    alert(`Player uses ${playerChoice}, computer uses ${computerChoice}.
     ${winner} wins\nplayerScore:${playerScore} computerScore:${computerScore}`);
+}
+
+for (let i = 0; i < 5; i++) {
+    game();
+}
