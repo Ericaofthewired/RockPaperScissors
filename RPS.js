@@ -11,6 +11,11 @@ const log = document.querySelector('#log');
 const playerScoreDisplay = document.querySelector('#playerScoreDisplay');
 const computerScoreDisplay = document.querySelector('#computerScoreDisplay');
 
+const playAgain = document.createElement('button');
+playAgain.style.cssText = 'padding: 30px; background-color: red; font-size: 28px; color: white; border-radius: 36px; border-style: solid; border-color: white;';
+playAgain.textContent = 'Play Again';
+playAgain.addEventListener('click', () => window.location.reload())
+
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         if (button.id == "Rock") playerChoice = "rock"
@@ -81,9 +86,11 @@ function game() {
     if (computerScore === 5) {
         results.textContent = "Computer wins the game.";
         playerBox.innerHTML = "";
+        playerBox.appendChild(playAgain);
     }
     if (playerScore === 5) {
         results.textContent = "Player wins the game.";
         playerBox.innerHTML = "";
+        playerBox.appendChild(playAgain);
     }
 }
