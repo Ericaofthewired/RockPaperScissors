@@ -1,0 +1,56 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #9105b0;
+}
+#header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    color: white;
+}
+#playerBox {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    gap: 15px;
+    color: white;
+    margin-bottom: 40px;
+    text-align: center;
+}
+#buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.emoji {
+    font-size: 80px;
+}
+.buttonText {
+    font-size: 20px;
+    margin-top: 5px;
+}
+button {
+    width: 100px;
+}
+#log {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+}
+h1 {
+    margin: 0;
+    font-size: 4em;
+}
+h2 {
+    margin: 0;
+    font-size: 26px;
+}
+p {
+    margin: 0;
+}

@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+    <div id="header">
+        <h1>Rock Paper Scissors</h1>
+        <h2>First one to get 5 points wins!</h2>
+    </div>
+    <div id="playerBox">
+        <h2>Which one will you choose?</h2>
+        <div id="buttons">
+            <button id="Rock">
+                <div class="emoji">✊<div>
+                <p class="buttonText">Rock</p>
+            </button>
+            <button id="Paper">
+                <div class="emoji">✋<div>
+                <p class="buttonText">Paper</p>
+            </button>
+            <button id="Scissors">
+                <div class="emoji">✌️<div>
+                <p class="buttonText">Scissors</p>
+            </button>
+        </div>
+    </div>
+    <div id="log">
+        <div id="score">
+            <p id="playerScoreDisplay">Player Score: 0</p>
+            <p id="computerScoreDisplay">Computer Score: 0</p>
+        </div>
+    </div>
     <script src="RPS.js"></script>
 </body>
 </html>

@@ -4,10 +4,21 @@ let winner;
 let playerScore = 0;
 let computerScore = 0;
 
-function getPlayerChoice() {
-    input = prompt("Rock, paper or scissors?")
-    playerChoice = input;
-}
+const buttons = document.querySelectorAll('button');
+const playerBox = document.querySelector('#playerBox');
+const results = document.createElement('p');
+const log = document.querySelector('#log');
+const playerScoreDisplay = document.querySelector('#playerScoreDisplay');
+const computerScoreDisplay = document.querySelector('#computerScoreDisplay');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        if (button.id == "Rock") playerChoice = "rock"
+        else if (button.id == "Paper") playerChoice = "paper"
+        else if (button.id == "Scissors") playerChoice = "scissors"
+        game()
+    });
+  });
 
 function getComputerChoice() {
     num = Math.floor(Math.random() * 3);
@@ -16,7 +27,7 @@ function getComputerChoice() {
             computerChoice = "rock";
             break;
         case 1:
-            computerChoice = "scissors"
+            computerChoice = "scissors";
             break;
         case 2:
             computerChoice = "paper";
@@ -57,20 +68,22 @@ function playRound() {
     else if (playerChoice.toLowerCase() === "scissors" && computerChoice.toLowerCase() === "scissors") {
         winner = "No one";
     }
-    else {
-        winner = "No one"
-        alert("Invalid input, valid inputs are rock, paper and scissors.")
-    }
 }
 
 function game() {
-    getPlayerChoice();
-    getComputerChoice()
+    getComputerChoice();
     playRound();
-    alert(`Player uses ${playerChoice}, computer uses ${computerChoice}.
-    ${winner} wins\nplayerScore:${playerScore} computerScore:${computerScore}`);
-}
-
-for (let i = 0; i < 5; i++) {
-    game();
+    results.textContent = `Player uses ${playerChoice}, computer uses ${computerChoice}.
+    ${winner} wins this round.`;
+    log.insertBefore(results, score);
+    playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
+    computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+    if (computerScore === 5) {
+        results.textContent = "Computer wins the game.";
+        playerBox.innerHTML = "";
+    }
+    if (playerScore === 5) {
+        results.textContent = "Player wins the game.";
+        playerBox.innerHTML = "";
+    }
 }
